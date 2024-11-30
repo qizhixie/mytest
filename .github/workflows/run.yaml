@@ -1,8 +1,8 @@
 name: data_test
 
 on:
-  schedule:
-    - cron: '26 */6 * * *'  
+  # schedule:
+  #   - cron: '26 */6 * * *'  
   workflow_dispatch:  
 
 jobs:
