@@ -11,9 +11,9 @@ import re
 
 
 
-bvids = ["BV1zp1TYgEL5","BV1U12PYDErq","BV1Xhx1ezEad","BV1gZ1BYmEKM","BV1CfCQYiEk1","BV1wxxhemEEr","BV1NcxCepEMY","BV1XhxVeJE1h"]
+bvids = []
 
-bvids_bilibili_un = ""
+bvids_bilibili_un = "BV1hDDWY9Emh,BV1YFyUYVEBm,BV1gzmMYKEiS,BV1wxxhemEEr,BV1NcxCepEMY,BV1XhxVeJE1h,BV1a8mLYsEsQ"
 
 # bvids_bilibili_un = os.getenv("bvids_bilibili_un")
 # bvids_bilibili_un = bvids_bilibili_un.replace('"','')
@@ -68,7 +68,7 @@ for bvid in bvids:
 def goPlay(url):
     count = 0
     #count < 30
-    while count < 90:
+    while count < 45:
         try:
             random.shuffle(reqdatas)
             #发起一个post请求，去请求这个页面，从而获得一次点击量
@@ -82,7 +82,9 @@ def goPlay(url):
                 
                 requests.post(url, data=data, headers=headers)
 
-                time.sleep(6)
+                t = random.randint(10,15)
+            
+                time.sleep(t)
 
                 #requests.post(VIDEO_HEARTBEAT, data=data, headers=headers)
 
@@ -93,7 +95,7 @@ def goPlay(url):
             localtime = time.asctime( time.localtime(time.time()) )
             print_log(localtime)
             # 刷一次要休息100s, 即使有连接池貌似也不能随便刷, 你可以研究下
-            delay = random.randint(120,180)
+            delay = random.randint(300,360)
             time.sleep(delay)
         except Exception as e:
             print_log(e)
