@@ -68,7 +68,7 @@ for bvid in bvids:
 def goPlay(url):
     count = 0
     #count < 30
-    while count < 45:
+    while count < 78:
         try:
             random.shuffle(reqdatas)
             #发起一个post请求，去请求这个页面，从而获得一次点击量
@@ -95,7 +95,7 @@ def goPlay(url):
             localtime = time.asctime( time.localtime(time.time()) )
             print_log(localtime)
             # 刷一次要休息100s, 即使有连接池貌似也不能随便刷, 你可以研究下
-            delay = random.randint(300,360)
+            delay = random.randint(180,240)
             time.sleep(delay)
         except Exception as e:
             print_log(e)
